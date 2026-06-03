@@ -1,0 +1,35 @@
+1. Which product generates the most revenue?
+SELECT product, ROUND(SUM(totalprice)) AS revenue
+FROM dataset
+GROUP BY product
+ORDER BY revenue DESC
+LIMIT 1;
+
+2. What is the average order value per payment method?
+Query
+SELECT PaymentMethod, SUM(totalprice) / COUNT(OrderID) AS AOV
+FROM dataset
+GROUP BY PaymentMethod
+ORDER BY AOV;
+
+3. How many orders were cancelled vs delivered vs returned?
+Query
+SELECT OrderStatus, COUNT(OrderID) AS orders
+FROM dataset
+WHERE OrderStatus IN ('Cancelled', 'Delivered', 'Returned')
+GROUP BY OrderStatus
+ORDER BY orders;
+
+4. Which referral source brings in the highest spending customers?
+Query:
+SELECT ReferralSource, SUM(TotalPrice) AS AmountSpend
+FROM dataset
+GROUP BY ReferralSource
+ORDER BY AmountSpend;
+
+5. What is the total revenue per month?
+6. Which products have the highest cancellation rate?
+7. Do coupon users spend more than non-coupon users?
+8. What is the total number of orders and revenue per product?
+9. Which order status has the highest average order value?
+10. What are the top 5 highest value orders?
